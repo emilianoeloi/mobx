@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/emilianoeloi/mobx/issues"
   },
-  "homepage": "https://github.com/emilianoeloi/mobx#readme"
+  "homepage": "https://github.com/emilianoeloi/mobx#readme",
+  "dependencies": {
+    "mobx-react": "^3.1.0"
+  }
 }
