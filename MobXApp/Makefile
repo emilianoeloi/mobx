@@ -5,3 +5,6 @@ android:
 
 ios:
 	react-native run-ios
+
+openios:
+	open ios/MobXApp.xcodeproj
