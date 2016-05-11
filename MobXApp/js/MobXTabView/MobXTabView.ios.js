@@ -5,6 +5,7 @@ import React, {
   View,
   Text,
 } from 'react-native';
+import { observer } from 'mobx-react/native';
 
 import colors from '../common/colors.js';
 import MobXNavigator from '../MobXNavigator';
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
+@observer
 class MobXTabView extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +30,9 @@ class MobXTabView extends Component {
     this.setState({
       selectedTab: 'green',
     });
+  }
+  componentWillReact() {
+    console.info('componentWillReact');
   }
   _renderContent(tab: string, color: string) {
     return (

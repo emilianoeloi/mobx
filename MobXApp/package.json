@@ -6,7 +6,13 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "mobx": "^2.1.6",
+    "mobx-react": "^3.1.0",
     "react": "^0.14.8",
     "react-native": "^0.25.1"
+  },
+  "devDependencies": {
+    "mobx": "^2.1.6",
+    "mobx-react": "^3.1.0"
   }
 }

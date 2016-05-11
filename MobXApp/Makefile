@@ -1,5 +1,9 @@
 .PHONY: android ios
 
+reset:
+	watchman watch-del-all
+	rm -rf node_modules && npm install
+
 android:
 	react-native run-android
 
