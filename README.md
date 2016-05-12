@@ -2,6 +2,10 @@
 
 "Everything that can be derived from the application state, should be derived. Automatically." MobX behind MobX
 
+## setup
+`cd MobXApp`
+`make setup`  
+
 ## Actions
 
 ## State

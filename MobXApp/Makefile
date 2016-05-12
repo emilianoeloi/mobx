@@ -1,7 +1,7 @@
 .PHONY: android ios
 
 setup:
-	npm install	
+	npm install
 
 reset:
 	watchman watch-del-all
