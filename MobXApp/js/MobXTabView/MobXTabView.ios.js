@@ -21,8 +21,7 @@ const styles = StyleSheet.create({
   },
 });
 
-@observer
-class MobXTabView extends Component {
+@observer class MobXTabView extends Component {
   constructor(props) {
     super(props);
   }
