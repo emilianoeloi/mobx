@@ -3,6 +3,8 @@ import React, {
   StyleSheet,
   View
 } from 'react-native';
+import { observer } from 'mobx-react/native';
+
 import MobXTabView from './MobXTabView';
 
 const styles = StyleSheet.create({
@@ -12,14 +14,27 @@ const styles = StyleSheet.create({
   },
 });
 
+@observer
 class MobXApp extends Component {
   render() {
+    const {
+      navigationStore,
+      viewStore,
+    } = this.props;
     return (
       <View style={[styles.container]}>
-        <MobXTabView ref={(tab) => { this.tab = tab}} />
+        <MobXTabView
+          navigationStore={navigationStore}
+          viewStore={viewStore}
+          ref={(tab) => { this.tab = tab}}
+        />
       </View>
     );
   }
+}
+MobXApp.propTypes = {
+  viewStore: React.PropTypes.object.isRequired,
+  navigationStore: React.PropTypes.object.isRequired,
 }
 
 module.exports = MobXApp;

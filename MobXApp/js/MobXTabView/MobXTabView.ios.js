@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
   },
 });
 
-@observer class MobXTabView extends Component {
+@observer
+class MobXTabView extends Component {
   constructor(props) {
     super(props);
   }
@@ -40,67 +41,64 @@ const styles = StyleSheet.create({
       </View>
     );
   }
+  _changeTab(tab) {
+    this.setState({
+      selectedTab: tab,
+    });
+    this.props.navigationStore.changeTab(tab);
+  }
   render() {
+    const {
+      navigationStore,
+      viewStore,
+    } = this.props;
     return (
       <TabBarIOS tintColor={colors.default}>
         <TabBarIOS.Item
           title="Blue"
           selected={this.state.selectedTab === 'blue'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'blue',
-            });
-          }}
+          onPress={() => this._changeTab('blue')}
         >
-          <MobXNavigator />
+          <MobXNavigator
+            navigationStore={navigationStore}
+            viewStore={viewStore}
+          />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Red"
           selected={this.state.selectedTab === 'red'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'red',
-            });
-          }}
+          onPress={() => this._changeTab('red')}
         >
           {this._renderContent('Red', colors.red)}
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Green"
           selected={this.state.selectedTab === 'green'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'green',
-            });
-          }}
+          onPress={() => this._changeTab('green')}
         >
           {this._renderContent('Green', colors.green)}
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Orange"
           selected={this.state.selectedTab === 'orange'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'orange',
-            });
-          }}
+          onPress={() => this._changeTab('orange')}
         >
           {this._renderContent('Orange', colors.orange)}
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Grey"
           selected={this.state.selectedTab === 'grey'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'grey',
-            });
-          }}
+          onPress={() => this._changeTab('grey')}
         >
           {this._renderContent('Grey', colors.grey)}
         </TabBarIOS.Item>
       </TabBarIOS>
     )
   }
+}
+MobXTabView.propTypes = {
+  viewStore: React.PropTypes.object.isRequired,
+  navigationStore: React.PropTypes.object.isRequired,
 }
 
 module.exports = MobXTabView;

@@ -7,6 +7,7 @@ import React, {
   Text,
   Image,
 } from 'react-native';
+import { observer } from 'mobx-react/native';
 
 import Colors from '../common/colors.js';
 import Assets from '../assets'
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
   },
 });
 
+@observer
 class MobXNavigator extends Component {
   constructor(props){
     super(props);
@@ -121,6 +123,10 @@ class MobXNavigator extends Component {
     };
   }
   renderScene(route) {
+    const {
+      navigationStore,
+      viewStore,
+    } = this.props;
     console.info('_renderScene', 'route', route);
     tabView = (<Text>Default</Text>);
     if (route.name === 'blue') {
@@ -137,6 +143,7 @@ class MobXNavigator extends Component {
     return (
       <View style={[styles.skipHeader, styles.container]}>
         <Text>Navigator</Text>
+        <Text>Count: {navigationStore.count}</Text>
         {tabView}
       </View>
     );
@@ -155,6 +162,10 @@ class MobXNavigator extends Component {
       />
     );
   }
+}
+MobXNavigator.propTypes = {
+  viewStore: React.PropTypes.object.isRequired,
+  navigationStore: React.PropTypes.object.isRequired,
 }
 
 module.exports = MobXNavigator;
