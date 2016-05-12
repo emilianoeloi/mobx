@@ -4,7 +4,6 @@
 
 ## Actions
 
-
 ## State
 
 ## Reactive derivations
@@ -22,3 +21,5 @@ TabBarIOS - https://facebook.github.io/react-native/docs/tabbarios.html
 Navigator - https://facebook.github.io/react-native/docs/navigator.html#navigator
 
 Simple example of React Native using Mobx - https://github.com/bartonhammond/mobx-react-native-counter
+
+babel-preset-react-native-stage-0  - https://www.npmjs.com/package/babel-preset-react-native-stage-0
