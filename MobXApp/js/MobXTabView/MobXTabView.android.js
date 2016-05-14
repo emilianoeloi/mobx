@@ -6,6 +6,7 @@ import React, {
   Text,
 } from 'react-native';
 import { observer } from 'mobx-react/native';
+import TabNavigator from 'react-native-tab-navigator';
 
 import colors from '../MobXCore/common/colors.js';
 import MobXNavigator from '../MobXNavigator';
@@ -47,14 +48,15 @@ class MobXTabView extends Component {
     });
     this.props.navigationStore.changeTab(tab);
   }
+  _
   render() {
     const {
       navigationStore,
       viewStore,
     } = this.props;
     return (
-      <TabBarIOS tintColor={colors.default}>
-        <TabBarIOS.Item
+      <TabNavigator>
+        <TabNavigator.Item
           title="Blue"
           selected={this.state.selectedTab === 'blue'}
           onPress={() => this._changeTab('blue')}
@@ -63,36 +65,36 @@ class MobXTabView extends Component {
             navigationStore={navigationStore}
             viewStore={viewStore}
           />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
+        </TabNavigator.Item>
+        <TabNavigator.Item
           title="Red"
           selected={this.state.selectedTab === 'red'}
           onPress={() => this._changeTab('red')}
         >
           {this._renderContent('Red', colors.red)}
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
+        </TabNavigator.Item>
+        <TabNavigator.Item
           title="Green"
           selected={this.state.selectedTab === 'green'}
           onPress={() => this._changeTab('green')}
         >
           {this._renderContent('Green', colors.green)}
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
+        </TabNavigator.Item>
+        <TabNavigator.Item
           title="Orange"
           selected={this.state.selectedTab === 'orange'}
           onPress={() => this._changeTab('orange')}
         >
           {this._renderContent('Orange', colors.orange)}
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
+        </TabNavigator.Item>
+        <TabNavigator.Item
           title="Grey"
           selected={this.state.selectedTab === 'grey'}
           onPress={() => this._changeTab('grey')}
         >
           {this._renderContent('Grey', colors.grey)}
-        </TabBarIOS.Item>
-      </TabBarIOS>
+        </TabNavigator.Item>
+      </TabNavigator>
     )
   }
 }

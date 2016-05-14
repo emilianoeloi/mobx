@@ -5,7 +5,7 @@ import React, {
 } from 'react-native';
 import { observer } from 'mobx-react/native';
 
-import MobXTabView from './MobXTabView';
+import MobXTabView from '../MobXTabView';
 
 const styles = StyleSheet.create({
   container: {

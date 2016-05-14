@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "mobx": "^2.1.6",
-    "mobx-react": "^3.1.0"
+    "mobx-react": "^3.1.0",
+    "react-native-tab-navigator": "^0.3.0"
   }
 }
