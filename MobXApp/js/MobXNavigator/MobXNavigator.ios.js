@@ -59,6 +59,13 @@ const styles = StyleSheet.create({
   navBarButtonText: {
     color: '#5890FF',
   },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
 });
 
 @observer
@@ -78,6 +85,9 @@ class MobXNavigator extends Component {
 
     this.navigator = null;
   }
+  _goBack(){
+    this.props.navigationStore.history(-1);
+  }
   componentWillMount() {
     this._navVarRouteMapper = {
       RightButton: () => (
@@ -93,7 +103,7 @@ class MobXNavigator extends Component {
 
       LeftButton: () => (
         <TouchableOpacity
-          onPress={{}}
+          onPress={() => this._goBack()}
           style={[styles.leftButton]}
         >
         <Image
@@ -145,6 +155,20 @@ class MobXNavigator extends Component {
         <Text>Navigator</Text>
         <Text>Count: {navigationStore.count}</Text>
         {tabView}
+        <Video source={{uri: "background"}} // Can be a URL or a local file.
+          rate={1.0}                   // 0 is paused, 1 is normal.
+          volume={1.0}                 // 0 is muted, 1 is normal.
+          muted={false}                // Mutes the audio entirely.
+          paused={false}               // Pauses playback entirely.
+          resizeMode="cover"           // Fill the whole screen at aspect ratio.
+          repeat={true}                // Repeat forever.
+          onLoadStart={this.loadStart} // Callback when video starts to load
+          onLoad={this.setDuration}    // Callback when video loads
+          onProgress={this.setTime}    // Callback every ~250ms with currentTime
+          onEnd={this.onEnd}           // Callback when playback finishes
+          onError={this.videoError}    // Callback when video cannot be loaded
+          style={styles.backgroundVideo} />
+
       </View>
     );
   }

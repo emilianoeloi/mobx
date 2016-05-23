@@ -6,6 +6,7 @@ import React, {
 import { observer } from 'mobx-react/native';
 
 import MobXTabView from '../MobXTabView';
+import MobXVideoPlayer from '../MobXVideoPlayer';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,15 +22,16 @@ class MobXApp extends Component {
       navigationStore,
       viewStore,
     } = this.props;
-    return (
-      <View style={[styles.container]}>
-        <MobXTabView
-          navigationStore={navigationStore}
-          viewStore={viewStore}
-          ref={(tab) => { this.tab = tab}}
-        />
-      </View>
-    );
+    return ( <MobXVideoPlayer /> );
+    // return (
+    //   <View style={[styles.container]}>
+    //     <MobXTabView
+    //       navigationStore={navigationStore}
+    //       viewStore={viewStore}
+    //       ref={(tab) => { this.tab = tab}}
+    //     />
+    //   </View>
+    // );
   }
 }
 MobXApp.propTypes = {

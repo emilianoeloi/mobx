@@ -92,14 +92,7 @@ class MobXNavigator extends Component {
       ),
 
       LeftButton: () => (
-        <TouchableOpacity
-          onPress={{}}
-          style={[styles.leftButton]}
-        >
-        <Image
-          source={Assets.iconBack}
-        />
-        </TouchableOpacity>
+        <View />
       ),
 
       Title: (route, navigator) => (

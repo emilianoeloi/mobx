@@ -17,6 +17,10 @@ export default class NavigationStore {
     this.scenes.push(new NavigationModel(this, Utils.uuid(), url, tab));
   }
 
+  history(index){
+    
+  }
+
   changeTab(tab) {
     this.scenes.push(new NavigationModel(this, Utils.uuid(), null, tab));
   }

@@ -9,6 +9,7 @@ import { observer } from 'mobx-react/native';
 
 import colors from '../MobXCore/common/colors.js';
 import MobXNavigator from '../MobXNavigator';
+import MobXVideoPlayer from '../MobXVideoPlayer';
 
 const styles = StyleSheet.create({
   tabContent: {
@@ -69,7 +70,7 @@ class MobXTabView extends Component {
           selected={this.state.selectedTab === 'red'}
           onPress={() => this._changeTab('red')}
         >
-          {this._renderContent('Red', colors.red)}
+          <MobXVidePlayer />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="Green"
